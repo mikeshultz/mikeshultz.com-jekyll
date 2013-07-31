@@ -1,0 +1,10 @@
+---
+layout: default
+---
+
+<div class="post content">
+	<h2>{{ page.title }}</h2>
+	<p class="meta">{{ page.date | date_to_string }} - Status: {{ page.status }}</p>
+	{% if page.site_url %}<div class="url"><b>URL</b>: <a href="{{ page.site_url }}" onclick="window.open(this.href); return false;">{{ page.site_url }}</a></div>{% endif %}
+{{ content }}
+</div>
