@@ -2,5 +2,5 @@ name: MikeShultz.com
 markdown: redcarpet
 highlighter: true
 destination: /var/www/mikeshultz.com
-exclude: ["README.md","mikeshultz.com.sublime-project"]
+exclude: ["README.md","setup.sh"]
 timezone: Amierica/Denver
