@@ -5,7 +5,6 @@ date: 2012-01-15 13:58:00
 update: 2012-03-03 07:49:36
 categories: ["Web-Development","Projects"]
 tags: ["Web", "Jekyll"]
-site_url: http://www.hotforcongress.com
 ---
 
 ### Summary 

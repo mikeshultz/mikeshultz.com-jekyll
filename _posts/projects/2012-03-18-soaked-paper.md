@@ -5,7 +5,7 @@ date: 2012-03-18 13:58:00
 update: 2012-06-09 06:45:04
 categories: ["Web-Development","Projects"]
 tags: ["Web", "html", "javascript"]
-status: "Development Stalled"
+status: "Abandoned"
 ---
 
 ### Summary
