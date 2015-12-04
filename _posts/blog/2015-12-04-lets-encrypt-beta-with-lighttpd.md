@@ -12,11 +12,11 @@ The auto-config stuff doesn't yet work for lighttpd so it requires some manual e
 
 **NOTE**: This is still meant for smaller sites, so you really should not bother with this if you've got a full Web cluster or any kind of unique setup.  The server will also need to be accessable by the Let's Encrypt servers and an IP list has not been published(that I found).  So if you're firewalled, you're either going to have to open up during setup or just get a paid cert with a service that uses other validation means.
 
-### Generating The Certificate
+## Generating The Certificate
 
 This part is super easy and there's not a whole lot to describe.
 
-## Setup letsencrypt
+### Setup letsencrypt
 
 The following commands need root to fully work properly.  First we need to get the letsencrypt package and install it.  We'll put it out of the way in /tmp for the time being.
 
@@ -26,13 +26,15 @@ Clone the git repository here.
 
 {% highlight shell %}git clone https://github.com/letsencrypt/letsencrypt{% endhighlight %}
 
+### Generate Everything!
+
 Move into the directory so we know what to work with `cd letsencrypt` and we can run the necessary generation command right from here.  You can dig further into the letsencrypt options(**this will also install packages if the dependencies aren't already met**) with `./letsencrypt-auto --help`.
 
 Replace the E-mail address and domain name(s) below to suit your own site.  The path changes didn't seem to change anything for me, but the default locations worked pretty well.  If it hasn't already, this will install dependencies(or try).
 
 {% highlight shell %}./letsencrypt-auto certonly --manual --email me@example.com -d example.com -d www.example.com{% endhighlight %}
 
-# Validation
+### Validation
 
 This will now display some instructions on how to deal with validation.  It will ask you to create some directories and files for verification and run a temporary Web server on TCP port 80.  If you follow these directions to the letter it will work just fine.  However, **you will have to shut down any current Web servers** listening on port 80 but for many of us, myself included, this is not ideal or not possible.
 
@@ -57,7 +59,7 @@ This will work for any future validation as well, but you may not want to leave 
 
 Now it will automatically generate your private key, CSR, request the signed certificate from Let's Encrypt's servers, and download the needed certificate chain.  For me, it put all of the needed PEM files in `/etc/letsencrypt/archive/` and symlinked all the current/good ones to `/etc/letsencrypt/live/`.  I'm guessing this is how it will deal with all future renewals by generating new certs in the `archive` directory and updating the symlink in `live1.  
 
-## Setup Certificates For Lighty
+### Setup Certificates For Lighty
 
 Lighty likes its certificates in a specific format to work properly and Let's Encrypt doesn't format them in exactly the way lighttpd wants it.  Specifically, it wants the private key and signed certificate in the same PEM file.  Simple enough.  Just replace the proper directory paths with your own.
 
