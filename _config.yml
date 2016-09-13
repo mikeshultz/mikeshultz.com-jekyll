@@ -4,3 +4,13 @@ highlighter: true
 destination: /var/www/mikeshultz.com
 exclude: ["README.md","setup.sh"]
 timezone: Amierica/Denver
+gems:
+  - jekyll-assets
+assets:
+  compress:
+    css: false
+    js: false
+  prefix: "/assets"
+  digest: true
+  sources:
+    - "_assets/folder"
